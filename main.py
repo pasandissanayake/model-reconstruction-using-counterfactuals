@@ -37,6 +37,10 @@ if __name__=='__main__':
     args = parser.parse_args()
     imp_naive = [-1]
     imp_smart = [0.5]
+    try:
+        cf_label = float(args.cflabel)
+    except ValueError:
+        cf_label = args.cflabel
 
     timer = Timer()
     timer.start()
@@ -55,13 +59,13 @@ if __name__=='__main__':
                         targ_arch=args.target_archi,
                         targ_epochs=args.target_epochs,
                         targ_lr=0.01,
-                        surr_archs=args.surr_archi,
+                        surr_archs=[args.surr_archi],
                         surr_epochs=args.surr_epochs,
                         surr_lr=0.01,
                         imp_smart=imp_smart,
                         imp_naive=imp_naive,
                         batch_size=args.batch_size,
-                        cf_label=int(args.cflabel) if args.cflabel.isdecimal() else args.cflabel,
+                        cf_label=cf_label,
                         loss_type=args.loss_type
                     )
     generate_stats(exp_dir, loss_type=args.loss_type)
