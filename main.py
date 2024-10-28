@@ -1,5 +1,5 @@
 import argparse
-from .utils_v8 import *
+from utils_v8 import *
 
 
 if __name__=='__main__':
@@ -17,11 +17,11 @@ if __name__=='__main__':
     parser.add_argument('--num_queries', type=int, default=8, help='Number of queries')
     parser.add_argument('--ensemble_size', type=int, default=50, 
                         help='Ensemble size to repeat the experiment and compute averages over')
-    parser.add_argument('--target_archi', type=list, default=[20, 10], 
+    parser.add_argument('--target_archi', type=int, nargs='+', default=[20, 10], 
                         help='Target model architecture as a list of the sizes of intermediate layers')
     parser.add_argument('--target_epochs', type=int, default=200, help='Target model training epochs')
-    parser.add_argument('--surr_archies', type=list, default=[[20, 10], [20, 10, 5]], 
-                        help='Architectures of surrogate models; can specify as a list of a lists')
+    parser.add_argument('--surr_archi', type=int, nargs='+', default=[[20, 10], [20, 10, 5]], 
+                        help='Surrogate model architecture')
     parser.add_argument('--surr_epochs', type=int, default=200, help='Surrogate model training epochs')
     parser.add_argument('--batch_size', type=int, default=32, help='Training batch size')
     parser.add_argument('--cflabel', type=str, default='0.5', 
@@ -35,8 +35,8 @@ if __name__=='__main__':
                               'twosidemod: CCA loss, but now accounts for CFs from both sides of the decision boundary'))
 
     args = parser.parse_args()
-    imp_naive = [-1] * len(args.surr_archies)
-    imp_smart = [0.5] * len(args.surr_archies)
+    imp_naive = [-1]
+    imp_smart = [0.5]
 
     timer = Timer()
     timer.start()
@@ -55,7 +55,7 @@ if __name__=='__main__':
                         targ_arch=args.target_archi,
                         targ_epochs=args.target_epochs,
                         targ_lr=0.01,
-                        surr_archs=args.surr_archies,
+                        surr_archs=args.surr_archi,
                         surr_epochs=args.surr_epochs,
                         surr_lr=0.01,
                         imp_smart=imp_smart,

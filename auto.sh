@@ -1,7 +1,0 @@
-#!/bin/bash
-
-python camready_script1_v8_mccfL2.py
-python camready_script1_v8_mccfL1.py
-python camready_script1_v8_knn.py
-python camready_script1_v8_roar.py
-python camready_script1_v8_diceactionable.py
