@@ -1,5 +1,5 @@
 # Model reconstruction using counterfactual explanations
-This repository provides the code for the paper "Model reconstruction using counterfactual explanations: A perspective from polytope theory" by [Pasan Dissanayake](https://pasandissanayake.github.io/) and [Sanghamitra Dutta](https://sites.google.com/site/sanghamitraweb/) accepted at NeurIPS 2024.
+This repository provides the code for the paper *"Model reconstruction using counterfactual explanations: A perspective from polytope theory"* by [Pasan Dissanayake](https://pasandissanayake.github.io/) and [Sanghamitra Dutta](https://sites.google.com/site/sanghamitraweb/) accepted at NeurIPS 2024.
 
 ## Experiments
 
@@ -14,7 +14,7 @@ python main.py --dir ./results/test --dataset heloc --use_balanced_df True --que
 The experiments generate files containing the queries, models and statistics. To visualize the results, use the Jupyter Notebook `visualize.ipynb`.
 
 ## Acknowledgement
-Our code uses the codebase from the paper *Black, E., Wang, Z., Fredrikson, M., & Datta, A., Consistent Counterfactuals for Deep Models, ICLR 2021* from [https://github.com/zifanw/consistency](https://github.com/zifanw/consistency).
+Our code uses the codebase from the paper *"Black, E., Wang, Z., Fredrikson, M., & Datta, A., Consistent Counterfactuals for Deep Models, ICLR 2021"* from [https://github.com/zifanw/consistency](https://github.com/zifanw/consistency).
 
 ## License
 Please see [LICENSE](LICENSE).
